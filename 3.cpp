@@ -4,6 +4,10 @@ using namespace std;
 #include <string>
 #include <set>
 
+/*
+    use a set supporting a sliding window manner.
+*/
+
 class Solution {
 public:
     int lengthOfLongestSubstring(string s) {

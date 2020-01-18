@@ -2,6 +2,11 @@
 using namespace std;
 #include <string>
 
+/*
+    find the rules obeyed by each line.
+    head/bottom and middle parts are treated differently.
+*/
+
 class Solution {
 public:
     string print(string s, int numRows, int mode, int pos) {

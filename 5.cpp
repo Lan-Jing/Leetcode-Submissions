@@ -2,6 +2,11 @@
 using namespace std;
 #include <string>
 
+/*
+    O(n^2) brutal force. 
+    O(n) Manacher's Algorithm
+*/
+
 class Solution {
 public:
     string longestPalindrome(string s) {
@@ -30,6 +35,6 @@ public:
 
 int main(){
     Solution sol;
-    cout<<sol.longestPalindorme("cbbd")<<endl;
+    cout<<sol.longestPalindrome("cbbd")<<endl;
     return 0;
 }

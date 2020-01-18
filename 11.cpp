@@ -3,6 +3,12 @@ using namespace std;
 #include <cstring>
 #include <vector>
 
+/*
+    O(n^2) with modification. note that both left and right walls 
+    should have ascending height sequences, which can remove some walls.
+    O(n) algorithm to be learned.
+*/
+
 class Solution {
 public:
     int maxArea(vector<int>& height){

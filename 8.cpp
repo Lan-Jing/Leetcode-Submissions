@@ -4,6 +4,10 @@ using namespace std;
 #include <cstring>
 #include <cmath>
 
+/*
+    conversion. Try to consider all situations.    
+*/
+
 class Solution {
 public:
     int myAtoi(string str) {

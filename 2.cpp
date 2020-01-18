@@ -2,6 +2,10 @@
 using namespace std;
 #include <cstring>
 
+/*
+    use linked list for simulating big Integer addition.
+*/
+
 struct ListNode {
     int val;
     ListNode *next;

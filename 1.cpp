@@ -3,6 +3,14 @@ using namespace std;
 #include <vector>
 #include <algorithm>
 
+/*
+    for every number i, try binary search for number: (target - i)
+    the time Complexity would be O(nlogn)
+    O(n) solution: maintain two pointers, one from left and the other from right.
+    if(num[left] + num[right]) is too large, then move pointer right to left,
+    otherwise pointer left to right.
+*/
+
 class Solution {
 public:
     struct node{

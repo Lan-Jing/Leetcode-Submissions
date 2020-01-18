@@ -4,6 +4,15 @@ using namespace std;
 #include <cstring>
 #include <algorithm>
 
+/*
+    Find the median of two sorted arrays.
+    Use nested binary search.
+    We may assume that the the median locates in one of the two arrays and try twice.
+    Use a binary search and check the number by again a 
+    binary search to determine the location in two arrays combined.
+    Finally pick out number(s) in the middle of the two arrays.
+*/
+
 class Solution {
 public:
     int getPosition(vector<int>& nums1, vector<int>& nums2, int target) {
