@@ -4,7 +4,8 @@ using namespace std;
 #include <vector>
 
 /*
-
+    Although the original array is not sorted, the mapping relation is still clear.
+    So build a mapping array to get real values, then use "virtual" addresses for binary search.
 */
 
 class Solution {

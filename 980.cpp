@@ -4,6 +4,10 @@ using namespace std;
 #include <cstring>
 #include <vector>
 
+/*
+    obviously this is a dfs problem.
+*/
+
 class Solution {
 public:
     struct node {
@@ -12,6 +16,7 @@ public:
             return this->x == other.x && this->y == other.y;
         }
         node(int _y, int _x) : y(_y), x(_x) {}
+        node(){}
     };
     int ans, tot;
     int gox[4]={0,0,-1,1}, goy[4]={1,-1,0,0};

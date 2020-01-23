@@ -3,6 +3,10 @@ using namespace std;
 #include <string>
 #include <vector>
 
+/*
+    upper_bound and lower_bound realization.
+*/
+
 class Solution {
 public:
     vector<int> searchRange(vector<int>& nums, int target) {

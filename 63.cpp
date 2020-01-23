@@ -4,6 +4,10 @@ using namespace std;
 #include <string>
 #include <cstring>
 
+/*
+    a simple recursion problem.
+*/
+
 class Solution {
 public:
     int uniquePathsWithObstacles(vector<vector<int> > &obstacleGrid) {
@@ -14,7 +18,7 @@ public:
         for(int i = 0;i < m;i++) dp[i].resize(n);
         dp[0][0] = !obstacleGrid[0][0];
         for(int i = 0;i < m;i++)
-            for(int j = 0;Nj < n;j++){
+            for(int j = 0;j < n;j++){
                 if(i < m-1 && !obstacleGrid[i+1][j]) dp[i+1][j] += dp[i][j];
                 if(j < n-1 && !obstacleGrid[i][j+1]) dp[i][j+1] += dp[i][j];
             }

@@ -5,6 +5,10 @@ using namespace std;
 #include <vector>
 #include <algorithm>
 
+/*
+    a hand-coding hashTable which is EXETREMLY slow, which can't survive the last few cases.
+*/
+
 class Solution {
 public:
     struct hashNode {

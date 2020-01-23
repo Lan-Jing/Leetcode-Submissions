@@ -5,6 +5,16 @@ using namespace std;
 #include <utility>
 #include <vector>
 
+/*
+    this is an O(n^2) solution with improvement.
+    Considering all positions, nodes with smaller range than those from left is useless.
+    We can remove these nodes and adjust the rest in O(n), making it possible to pass the last case.
+
+    Greedy algorithm will be better. To further consider the improvement above, we can actually perform it
+    in every jump. Each node corresponds to a jump range, from which the node with largest range is chosen.
+    This decision will always ensure a maximum flexibility and no possible path will be omitted.
+*/
+
 class Solution {
 public:
     int jump(vector<int> &nums) {

@@ -4,6 +4,12 @@ using namespace std;
 #include <cstring>
 #include <vector>
 
+/*
+    a dfs solution with concurrent Trie matching.
+    Details:
+    a word can be another's prefix, so we need a tag for marking a non-leaf node with complete word.
+*/
+
 class Solution {
 public:
     struct TrieNode {

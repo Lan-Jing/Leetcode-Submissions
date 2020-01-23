@@ -4,6 +4,10 @@ using namespace std;
 #include <vector>
 #include <cstring>
 
+/*
+    dfs Sudoku solver.
+*/
+
 class Solution {
 public:
     int rowCheck[9][10], colCheck[9][10], gridCheck[9][10];

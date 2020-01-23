@@ -4,6 +4,10 @@ using namespace std;
 #include <cstring>
 #include <vector>
 
+/*
+    Problem 51 and 52 are a classic N-Queens problems, which can be solved in a dfs manner.
+*/
+
 class Solution {
 public:
     void printBoard(vector<vector<string> > &res, vector<int> &pos) {

@@ -4,6 +4,11 @@ using namespace std;
 #include <cstring>
 #include <vector>
 
+/*
+    O(n) greedy solution is quite perfect.
+    It may not be possible to use less time for feasibility validation.
+*/
+
 class Solution {
 public:
     int canJump(vector<int> &nums) {

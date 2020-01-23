@@ -5,6 +5,13 @@ using namespace std;
 #include <cmath>
 #include <vector>
 
+/*
+    for each node, the possible value should be in the range determined by its ancestors.
+    Each left recursion narrow the right bound, while right recurision narrowing the left.
+    The edge condition should be treated as the range for root node is not clear, but can be 
+    solved by node-to-node comparison.
+*/
+
 struct TreeNode {
     int val;
     TreeNode *left, *right;

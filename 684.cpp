@@ -3,6 +3,10 @@ using namespace std;
 #include <string>
 #include <vector>
 
+/*
+    disjoint set for connectibity check of undirected graph.
+*/
+
 class Solution {
 public:
     int uni[1010];

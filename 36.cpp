@@ -4,6 +4,10 @@ using namespace std;
 #include <vector>
 #include <cstring>
 
+/*
+    Sudoku Validator.
+*/
+
 class Solution {
 public:
     bool isValidSudoku(vector<vector<char>>& board) {

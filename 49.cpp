@@ -6,6 +6,11 @@ using namespace std;
 #include <algorithm>
 #include <map>
 
+/*
+    sort every string and use the sorted one as key for a map.
+    We can use the appearing frequency list as key and spare the sorting part.
+*/
+
 class Solution {
 public:
     vector<vector<string> > groupAnagrams(vector<string> &strs) {

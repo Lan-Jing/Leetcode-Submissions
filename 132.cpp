@@ -5,6 +5,10 @@ using namespace std;
 #include <vector>
 #include <algorithm>
 
+/*
+    For minimum cut, implement a dp algorithm for partition, record minimum time for each position.
+*/
+
 class Solution {
 public:
     int minCut(string s) {

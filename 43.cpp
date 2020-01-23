@@ -5,6 +5,11 @@ using namespace std;
 #include <vector>
 #include <algorithm>
 
+/*
+    a bit integer multiplication.
+    first multiply all positions, then carry all at a time
+*/
+
 class Solution {
 public:
     string multiply(string num1, string num2) {

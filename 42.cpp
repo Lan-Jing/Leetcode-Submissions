@@ -4,6 +4,14 @@ using namespace std;
 #include <string>
 #include <cstring>
 
+/*
+    Consider a left wall, a complete segement containing water
+    is determined by a higher right wall(we have to wait when we meet lower walls).
+    Calculate a preSum array and determine capacity of each segement.
+    However, it's possible that a higher right wall will not be met. To handle this we 
+    do the same algorithm from right to left again, completing the whole axis.
+*/
+
 class Solution {
 public:
     int trap(vector<int>& height) {

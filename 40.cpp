@@ -7,6 +7,12 @@ using namespace std;
 #include <map>
 #include <algorithm>
 
+/*
+    harder version of Problem 39: a number can be used multiple and different times. 
+    A better manner is to view numbers of same value as a group, then dfs how many numbers are chosen from a group,
+    instead of choosing a single one at a time.
+*/
+
 class Solution {
 public:
     vector<vector<int> > ans;

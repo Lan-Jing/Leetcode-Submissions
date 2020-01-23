@@ -5,6 +5,10 @@ using namespace std;
 #include <vector>
 #include <algorithm>
 
+/*
+    dfs for string partition.
+*/
+
 class Solution {
 public:
     void dfs(vector<vector<string> > &ans, vector<string> &res, vector<vector<int> > pos,
