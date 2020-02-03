@@ -4,6 +4,15 @@ using namespace std;
 #include <string>
 #include <vector>
 
+/*
+    easy DP. dp[k][i][j] represents substring s1[0-i] and s2[0-j] interleave s3[0-k]
+    Then for each char s3[k], it can be matched by either s1[i] or s2[j].
+    Answer should be dp[l3][l1][l2].
+
+    Be careful on the range restrictions. s1[0-i] and s2[0-j] combined can't be longer than s3[0-k]
+    and their length range should also be considered respectively.
+*/
+
 class Solution {
 public:
     bool isInterleave(string s1, string s2, string s3) {

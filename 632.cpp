@@ -7,6 +7,14 @@ using namespace std;
 #include <set>
 #include <map>
 
+/*
+    find the shortest range that covers at least one number from each group.
+    First we need a map for mapping discrete numbers into consecutive indecies.
+    Then we introduce a sliding window strategy to determine the wanted range.
+    Maintain a counter for covered group. When all groups are covered, try to
+    narrow the range by moving the left bound to right.
+*/
+
 class Solution {
 public:
     vector<int> smallestRange(vector<vector<int>>& nums) {

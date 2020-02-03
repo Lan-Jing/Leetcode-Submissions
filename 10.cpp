@@ -5,6 +5,18 @@ using namespace std;
 #include <vector>
 #include <algorithm>
 
+/*
+    not-easy DP. 
+    First trick for easy DP implementation is leaving the 0 areas of DP arrays, and
+    use them to represent empty situations, such as dp[0][0] for initialization.
+    Otherwise we have to code annoying edge situations explictly. 
+
+    for met '*', we can take results from its previous char:
+        1. count as single for the previous char.
+        2. count as multiple when the char continues to match s[j].
+        3. count as empty.
+*/
+
 class Solution {
 public:
     bool isMatch(string s, string p) {

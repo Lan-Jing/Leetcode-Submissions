@@ -6,6 +6,11 @@ using namespace std;
 #include <map>
 #include <vector>
 
+/*
+    a TLE solution using dfs-style validation.
+    Validate each starting point with O(M) complexity, making it a O(NM) solution
+*/
+
 class Solution {
 public:
     bool check(string target, map<string,int> dic, int step, int tot, int l) {

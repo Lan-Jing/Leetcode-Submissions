@@ -5,6 +5,13 @@ using namespace std;
 #include <vector>
 #include <queue>
 
+/*
+    this is a TLE solution for Problem 407.
+    The trivial thought was to fill up the holes from bottom to top.
+    Maintain a heap for picking up location for filling. The minimum height 
+    goes up 1 at a time (which makes it unefficient).
+*/
+
 class Solution {
 public:
     struct node {

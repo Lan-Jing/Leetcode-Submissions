@@ -4,7 +4,16 @@ using namespace std;
 #include <queue>
 
 /*
-    
+    find the root that makes a tree with minimum height.
+    toposort method:
+        implement a toposort on the undirected tree, like peeling an onion.
+        In order to determine the double-answer situation, we can record 
+        layer indecies for comparing the last two nodes.
+    dfs method:
+        think of the problem in another way, it wasn't hard to consider the problem 
+        as finding the longest path in the tree and its center. A dfs from any point can 
+        determine one end of the longest path by picking up the farthest node in the search. 
+        Then do dfs again from this point to get the wanted path. Record the path and find the center(s).
 */
 
 class Solution {

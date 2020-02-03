@@ -5,6 +5,17 @@ using namespace std;
 #include <vector>
 #include <algorithm>
 
+/*
+    a simpler version of Problem 10.
+    "match" means: p[i] == s[j] or p[i] == '?'
+    Then we only need to consider the '*' situations.
+    When we meet a '*', we can:
+        1. take it as an empty char, that is dp[i][j] = dp[i-1][j]
+        2. take it as any single char, dp[i][j] = dp[i-1][j-1]
+        3. take it as string with multiple chars, that is dp[i][j] = dp[i][j-1], which 
+           takes result from situation 2 from the last loop.
+*/
+
 class Solution {
 public:
     bool isMatch(string s, string p) {

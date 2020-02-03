@@ -6,6 +6,15 @@ using namespace std;
 #include <queue>
 #include <utility>
 
+/*
+    find the maximum number out of sliding windows.
+    easy by using ascending queue. Basic thought was that 
+    if a number is smaller than the previous, it can't change the max number in a window.
+    So for the queue we only push in greater numbers. Record the locations for poping 
+    when numbers are out of the window area. Finally the max number will be the front 
+    of the queue at any single time.
+*/
+
 class Solution {
 public:
     vector<int> maxSlidingWindow(vector<int>& nums, int k) {

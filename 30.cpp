@@ -5,6 +5,16 @@ using namespace std;
 #include <map>
 #include <vector>
 
+/*
+    first map all substrings in s into numbers, which turn the problem into validations 
+    of number lists. Restriction on word length would be useful. It split string s into K parts,
+    each a number list to fit(by numbers from words). Then we manage to change the original problem 
+    into sliding window problems, counting all windows containing every numbers from set words.
+    
+    each char in s make up a node in one of K lists. Also each node should be visited up to two times
+    (left and right bounds), making it an O(N) solution.
+*/ 
+
 class Solution {
 public:
     vector<int> findSubstring(string s, vector<string> &words) {

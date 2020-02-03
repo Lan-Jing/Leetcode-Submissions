@@ -5,6 +5,18 @@ using namespace std;
 #include <vector>
 #include <cstring>
 
+/*
+    inserting a new interval.
+    for the inserted interval, we try to find two intervals: rightest one i which left bound l[i] locates on
+    the left and leftmost one j which left bound l[j] locates on the right.
+    Then we have:
+        1. i doesn't exist.
+        2. j doesn't exist.
+        3. i and j both non-existing
+        4. i and j both existing
+    For each situation, consider edge combinations.
+*/
+
 class Solution {
 public:
     vector<vector<int> > insert(vector<vector<int> > &intervals, vector<int> &newInterval) {
