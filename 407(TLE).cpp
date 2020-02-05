@@ -32,7 +32,7 @@ public:
         if(now.y == 0 || now.x == 0 || now.y == heightMap.size()-1 || now.x == heightMap[0].size()-1) return 0;
         vis[now.y][now.x] = 1;
         if(!mode) valid[now.y][now.x] = 0;
-        else heightMap[now.y][now.x] = now.height + 1, que.push(node(now.y,now.x,heightMap[now.y][now.x]));
+        else heightMap[now.y][now.x] = now.height + mode, que.push(node(now.y,now.x,heightMap[now.y][now.x]));
         int res = 0;
         for(int i = 0;i < 4;i++){
             int nx = now.x + gox[i], ny = now.y + goy[i];
@@ -41,18 +41,19 @@ public:
                 continue;
             if(mode) res += change(heightMap,node(ny,nx,heightMap[ny][nx]),mode);
         }
-        return mode ? res + 1 : 0;
+        return mode ? res + mode : 0;
     }
     int dfsFlow(vector<vector<int> > &heightMap, node now, node start) {
         if(now.y == 0 || now.x == 0 || now.y == heightMap.size()-1 || now.x == heightMap[0].size()-1) return 0;
         vis[now.y][now.x] = 1;
-        int res = 1;
+        int res = 0x3f3f3f3f;
         for(int i = 0;i < 4;i++){
             int nx = now.x + gox[i], ny = now.y + goy[i];
-            if(nx < 0 || ny < 0 || nx >= heightMap[0].size() || ny >= heightMap.size() ||
-               vis[ny][nx] || heightMap[ny][nx] > now.height) 
+            if(vis[ny][nx] || heightMap[ny][nx] > now.height){
+                if(!vis[ny][nx]) res = min(res,heightMap[ny][nx] - now.height);
                 continue;
-            res &= dfsFlow(heightMap,node(ny,nx,heightMap[ny][nx]),start);
+            }
+            res = min(res,dfsFlow(heightMap,node(ny,nx,heightMap[ny][nx]),start));
         }
         if(now == start){
             memset(vis,0,sizeof(vis)); return change(heightMap,now,res);
@@ -60,7 +61,6 @@ public:
     }
     int trapRainWater(vector<vector<int> > &heightMap) {
         if(!heightMap.size()) return 0;
-        while(!que.empty()) que.pop();
         int m = heightMap.size(), n = heightMap[0].size();
         for(int i = 0;i < m;i++)
             for(int j = 0;j < n;j++)
@@ -71,6 +71,7 @@ public:
             if(!valid[now.y][now.x] || heightMap[now.y][now.x] != now.height) continue;
             memset(vis,0,sizeof(vis));
             int res = dfsFlow(heightMap,now,now);
+        //    cout<<now.y<<','<<now.x<<':'<<res<<endl;
             if(res) ans += res; 
         }
         return ans;
