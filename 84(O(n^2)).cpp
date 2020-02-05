@@ -4,6 +4,11 @@ using namespace std;
 #include <vector>
 #include <cmath>
 
+/*
+    This O(n^2) solution just merely pass all test cases.
+    Again it just consider the ascending-left-wall property to reudce the calculations.
+*/
+
 class Solution {
 public:
     int largestRectangleArea(vector<int> &heights) {
