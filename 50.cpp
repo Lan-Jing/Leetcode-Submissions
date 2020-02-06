@@ -4,6 +4,10 @@ using namespace std;
 #include <cmath>
 #include <stdint.h>
 
+/*
+    quickPow with binary factorization.
+*/
+
 class Solution {
 public:
     double myPow(double x, int n) {

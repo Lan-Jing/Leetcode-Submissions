@@ -5,8 +5,20 @@ using namespace std;
 #include <vector>
 #include <stdint.h>
  
+/*
+    this is a harder one but doesn't improve a lot, as all stack traverse take O(n) space.
+    In a BST, two neighbors of a node in the corresponding array should the rightmost node in
+    the left subtree and the leftmost one in the right subtree. By in-order traverse we can have
+    in-place decision, avoiding array reconstruction. Again we need to make use of computed node position 
+    for determining swapped numbers. To perform an O(1) space solution, try Morris Traverse.
+*/
+
 class Solution {
 public:
+    struct TreeNode{
+        int val;
+        TreeNode *left, *right;
+    };
     int a, b, aPos, bPos;
     struct returnNode{
         int totCount, rb, lb;
@@ -33,7 +45,7 @@ public:
         tot.totCount += left.totCount + right.totCount;
         if(left.rb == -1) left.rb = lbUp;
         if(right.lb == -1) right.lb = rbUp;
-        int pos = leftCountUp + left.totCount;
+        int pos = leftCountUp + left.totCount; // compute position of node in the array
         if(left.rb != -1 && right.lb == -1){
             if(root->val < left.rb && bPos < pos) b = root->val, bPos = pos;
         }else if(left.rb == -1 && right.lb != -1){
@@ -41,6 +53,7 @@ public:
         }else if(left.rb != -1 && right.lb != -1){
             if(root->val > left.rb && root->val > right.lb && aPos > pos) a = root->val, aPos = pos;
             if(root->val < left.rb && root->val < right.lb && bPos < pos) b = root->val, bPos = pos;
+            // the larger one of the swapped should be the left one while the smaller one has to be the right one.
         }
         return tot;
     }

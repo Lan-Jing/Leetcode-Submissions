@@ -5,6 +5,23 @@ using namespace std;
 #include <string>
 #include <cstring>
 
+/*
+    This is actually an extension of the 1-D rain trapping problem. 
+    Reccll the 1-D situation, we can have a two-pointer solution.
+    We maintain two pointers pointed to current positions as well as the maximum height visited by these pointers. 
+    Each time we pick up one of the two pointed position and compute water capacity of that bar directly.
+    Choices are made by comparing heights of the two pointed bar, as we will be safe to fill the shorter one because 
+    water won't overflow to the other side (with a higher bar). Capacity is determined through the current maximum height, 
+    which should always come from the same side of the current bar (otherwise we should fill bar from the other side).
+    Finally the two pointers will meet at one point, finishing the process.
+
+    The 2-D situation is basiclly the same, despite the 4-direction possibility. Instead of two boundary in a line,
+    we take the outmost rectangle as initial boundary. The simple comparision is replaced by picking up a boundary bar 
+    with minimum height (using a heap). Also water filled is determined by the visited maximum height. Notice that once 
+    the bar is filled, change its height and push it into the heap for further comparision. Higher nodes should be directly
+    pushed into the heap.
+*/
+
 class Solution {
 public:
     int gox[4]={-1,1,0,0}, goy[4]={0,0,1,-1};
