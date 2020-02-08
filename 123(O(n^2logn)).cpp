@@ -3,6 +3,11 @@ using namespace std;
 #include <string>
 #include <vector>
 
+/*
+    pass the problem using brutal force with segment tree.
+    Try all selling point and use O(logn) time to find the minimum buying price between two buys.
+*/
+
 class Solution {
 public:
     struct segNode {
