@@ -2,6 +2,11 @@
 using namespace std;
 #include <vector>
 
+/*
+    With duplicates the worst time complexity should probably O(n).
+    Use two pointers to determine the search range by removing duplicates on the left and right ends of the array.
+*/
+
 class Solution {
 public:
     int findMin(vector<int>& nums) {

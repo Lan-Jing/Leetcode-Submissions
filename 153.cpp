@@ -2,6 +2,12 @@
 using namespace std;
 #include <vector>
 
+/*
+    find the minimum number in a rotated array.
+    If the array is rotated in the middle, use the first element in the array for binary searching.
+    Otherwise just return the first element.
+*/
+
 class Solution {
 public:
     int findMin(vector<int>& nums) {

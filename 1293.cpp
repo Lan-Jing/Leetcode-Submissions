@@ -5,6 +5,14 @@ using namespace std;
 #include <queue>
 #include <cstring>
 
+/*
+    shortest path with wall elimination.
+    Obviously we will have two parameters consisting the search status: steps of movement we took and elimination chances we still have.
+    Focus on searching should always be checking meaningless status. In this problem, it is possible to have fewer steps while lossing more
+    chances of elimination, or take more steps to save these chances. 
+    The only useless situation is taking more eliminations without saving steps.
+*/
+
 class Solution {
 public:
     int vis[40][40], viss[40][40];
@@ -23,8 +31,8 @@ public:
         while(!que.empty()){
             queNode now = que.front(); que.pop();
             if(now.k <= vis[now.y][now.x] && now.step >= viss[now.y][now.x]) continue;
+            // more steps taken and more chances used.
             else vis[now.y][now.x] = now.k, viss[now.y][now.x] = now.step;
-        //    cout<<now.y<<','<<now.x<<':'<<now.step<<' '<<now.k<<endl;
             if(now.y == m-1 && now.x == n-1){
                 ans = min(ans,now.step); 
             }

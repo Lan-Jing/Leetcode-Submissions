@@ -5,6 +5,12 @@ using namespace std;
 #include <map>
 #include <algorithm>
 
+/*
+    segment tree solution with maximum value insert and query.
+    The worst time could be O(n^2), which can't survive the last testing case.
+    Add lazy tag for update delay may speed up the operations.
+*/
+
 class Solution {
 public:
     struct segNode {

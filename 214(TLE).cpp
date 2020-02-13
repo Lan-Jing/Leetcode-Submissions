@@ -4,6 +4,12 @@ using namespace std;
 #include <vector>
 #include <algorithm>
 
+/*
+    brutal-force solution.
+    The shortest palindrome of a string is determined by the longest sub-palindrome that starts at position 0,
+    which can be trivialy found in O(n^2) time. For example, "abba" for "abbacd". Then fill the rest chars at the beginning.
+*/
+
 class Solution {
 public:
     string shortestPalindrome(string s) {

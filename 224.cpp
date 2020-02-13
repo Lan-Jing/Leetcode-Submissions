@@ -3,6 +3,13 @@ using namespace std;
 #include <string>
 #include <stack>
 
+/*
+    simple calculator with only +/-/*. Few rules should be kept in mind:
+    1. When a new operator is met, complete all previous operators with equal or higher priorities.
+    2. When a right bracket is met, complete all operators until the corresponding left bracket is met.
+    3. clear up the stack after the loops.
+*/
+
 class Solution {
 public:
     void eval(stack<char> &opStk, stack<long long int> &numStk) {

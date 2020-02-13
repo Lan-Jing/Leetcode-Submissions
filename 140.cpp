@@ -5,6 +5,12 @@ using namespace std;
 #include <algorithm>
 #include <queue>
 
+/*
+    medium dfs problem.
+    First we need to check the existence of answers, which can be done by shortest-path algorithms quickly.
+    Then the construction of answers can be done easily by dfs.
+*/
+
 class Solution {
 public:
     void dfsBuild(vector<string> &ans, vector<int> &list, vector<string> &wordDict, vector<vector<int> > &antecedent, int now) {

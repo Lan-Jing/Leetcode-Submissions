@@ -4,6 +4,13 @@ using namespace std;
 #include <algorithm>
 #include <vector>
 
+/*
+    an O(nlogn) dp. First, we sort the jobs by their endTimes. Then we scan from left to right, for each job dp[i] we have two choices:
+    take the job, filling the time window, or skip it. When we skip the job, we transit the status naturly from the nearest job finished,
+    which is dp[i-1]. Also we can take the job, searching for the nearest job completed. As the array has been sorted, the first 
+    available start time can be found in O(logn) time with binary search.
+*/
+
 class Solution {
 public:
     struct job {
@@ -28,10 +35,8 @@ public:
                 if(jlist[mid].et <= jlist[i].st) l = mid + 1;
                 else r = mid;
             }
-        //    cout<<l<<endl;
             dp[i] = max(i ? dp[i-1] : 0,(l ? dp[l-1] : 0)+jlist[i].profit);
         }
-    //    for(int i = 0;i < n;i++) cout<<dp[i]<<' '; cout<<endl;
         int ans = 0;
         for(int i = 0;i < n;i++) ans = max(ans,dp[i]);
         return ans;

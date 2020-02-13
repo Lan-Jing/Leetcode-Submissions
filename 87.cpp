@@ -4,6 +4,11 @@ using namespace std;
 #include <string>
 #include <vector>
 
+/*
+    tree-style dp. dp[l][i][j] means if the two substrings of s1 and s2, starting at i and j with length l, are scamble strings.
+    Then use dfs to recursively cut and compare the substrings. Decisions are made by choosing whether to swap the order of substrings.
+*/
+
 class Solution {
 public:
     bool dfs(vector<vector<vector<int> > > &is, string &s1, string &s2, int start1, int start2, int l){

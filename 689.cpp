@@ -3,6 +3,12 @@ using namespace std;
 #include <string>
 #include <vector>
 
+/*
+    medium array problem.
+    We check the segment in the middle, then the job becomes finding segments from left and right, both with maximum sum, 
+    which can be easily handled in O(n) time.
+*/
+
 class Solution {
 public:
     vector<int> maxSumOfThreeSubarrays(vector<int>& nums, int k) {

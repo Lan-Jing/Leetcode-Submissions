@@ -3,6 +3,10 @@ using namespace std;
 #include <string>
 #include <vector>
 
+/*
+    easy traverse. Also doable for stack and Morris Traverse.
+*/
+
 class Solution {
 public:
     struct TreeNode {

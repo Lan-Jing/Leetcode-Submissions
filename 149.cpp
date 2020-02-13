@@ -7,6 +7,12 @@ using namespace std;
 #include <map>
 #include <cmath>
 
+/*
+    geometry.
+    use ax + by + c = 0 to represent a line. Always set parameter c as 1 or 0. Then take a set to record visted lines.
+    Be careful on special cases such as a = 0, b = 0 or c = 0. The overall time complexity should be O(n^2), as each point will only be visited once.
+*/
+
 class Solution {
 public:
     struct line {

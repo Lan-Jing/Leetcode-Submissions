@@ -5,6 +5,12 @@ using namespace std;
 #include <queue>
 #include <set>
 
+/*
+    a bfs problem. In this problem, In order to retrieve keys as many as possible,
+    walking back to grids that are visited should be necessary. Then we need to take the KEY status as checking parameter,
+    preventing meaningless movement without key collection.
+*/
+
 class Solution {
 public:
     struct node{
@@ -35,9 +41,6 @@ public:
                 now.key[grid[now.y][now.x]-'a'] = 1;
             if(vis[now.y][now.x].count(now.key)) continue;
             vis[now.y][now.x].insert(now.key);
-        //    cout<<now.y<<','<<now.x<<':';
-        //    for(int i = 0;i < k;i++) cout<<now.key[i]<<' '; cout<<endl;
-
             int cnt = 0;
             for(int i = 0;i < now.key.size();i++) cnt += now.key[i];
             if(cnt == k){

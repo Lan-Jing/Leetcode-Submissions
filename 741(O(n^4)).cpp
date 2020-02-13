@@ -4,6 +4,13 @@ using namespace std;
 #include <string>
 #include <cstring>
 
+/*
+    a classic 2-D DP problem with 2 positions as status.
+    In Order to finish traverse on two different paths, we can use two coordinate params (y1,x1) and (y2,x2) moving concurrently.
+    Then the problem turns out to be easy. However, the only situtation we have to worry about is when two points meet.
+    It can be easily handled by only allowing the cherry to be picked up once.
+*/
+
 class Solution {
 public:
     int gox[2]={-1,0}, goy[2]={0,-1};

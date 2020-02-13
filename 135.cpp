@@ -5,6 +5,16 @@ using namespace std;
 #include <queue>
 #include <stdint.h>
 
+/*
+    greedy problem.
+    Consider each person i and the two who are adjacent. Only three situations possible:
+    1. both the left and right ones are equal to or larger than i. Then we can(and should) minimize the candy for this person, which is 1.
+    2. one of two sides are larger, while the other is smaller. Then the candy for i should overnumber that of the smaller one. which is can[i-1]+1 or can[i+1]+1
+    3. both the left and right ones are smaller than i. Then we take the maximum candy of the two adjacent and add the additional 1, which is max(can[i-1],can[i+1])+1
+    Starting from all positions that fit condition 1, fill 1 candy each. Then take their adjacent candidates that fit condition 2, until one-side positions are all determined.
+    Finally take the persons with highest ratings.
+*/
+
 class Solution {
 public:
     int candy(vector<int>& ratings) {
