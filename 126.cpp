@@ -5,6 +5,13 @@ using namespace std;
 #include <queue>
 #include <algorithm>
 
+/*
+    However, we can solve this problem without even "trying". Consider any two points in the middle of one of our answer path, their 
+    distance should always be minimized. Otherwise, a shorter path shorter then the shortest one is found, which is impossible.
+    So we can collect direct antecedents of each point when computing the shortest distances. Then from the end point, follow 
+    antecedents recursively to construct all answers. Finally reverse the path and push it.
+*/
+
 class Solution {
 public:
     struct queNode {

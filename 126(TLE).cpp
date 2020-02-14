@@ -6,6 +6,12 @@ using namespace std;
 #include <queue>
 #include <utility>
 
+/*
+    We can directly dfs all answers, which take combinational time. 
+    To improve it, consider that all we need is the shortest paths. Length of the shortest paths can be easily and quickly computed,
+    then can be used to cut out longer paths.
+*/
+
 class Solution {
 public:
     int maxStep;

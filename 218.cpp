@@ -6,6 +6,21 @@ using namespace std;
 #include <map>
 #include <algorithm>
 
+/*
+    The problem is to find the maximum height for every edge point, provided by left and right edges the rectangle set.
+    Segment tree should be the most obvious solution. We can use heap to improve our plain scanning strategy.
+    When we find the left bound of a new rectangle, push it into the heap. Otherwise right edges of visited rectangles are reached. 
+    Pop them. Then the maximum height should stay at the top of the heap. Some details to handle.
+
+    1. It is unlikely we can remove a node in a stl heap.
+       We record the position information for each point, pop every obsolete point before comparasion.
+    2. It is possible that a point with maximum height locates in the middle of some rectangle, instead of the leftmost location.
+       Check the last point pushed into the ans vector, if that point holds the same height, throw out the current one.
+    3. Multiple left edges of rectangle may appear at the same time.
+       Only keep the one with largest height. Mind that this condition should be handled first then condition 2: max height first 
+       determined, validaity then checked.
+*/
+
 class Solution {
 public:
     struct edge {

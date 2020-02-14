@@ -3,6 +3,19 @@ using namespace std;
 #include <string>
 #include <vector>
 
+/*
+    every trick dfs problem.
+    First do not try to solve it with divide-and-conquer manner with arbitrary order, due to limited computation order and precedence.
+    Then a trivial solution is to try all four possibility between every two chars: nothing, '+', '-' or '*'.
+    finally use O(n) time to compute the answer, which is inefficent.
+
+    Think about keeping the current evaluated value from left to right. Then we first determine two operands then the operator.
+    Use a loop to cut out the second operand, while the current evaluation is always the first. Try every operator. Mind that 
+    multiplication holds different order. The left operand computed should now combined to its right instead of left that is already 
+    completed. To handle this we need a mulRes parameter to record the multiplication results and previous operands. when a multiplcation
+    is added, reverse the last operation(which can only be add or sub), get the new result then add it into the current value.
+*/
+ 
 class Solution {
 public:
     void dfs(vector<string> &ans, string &num, int target, string tmp, int nowPos, long long nowVal, long long mulRes) {

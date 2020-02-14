@@ -4,6 +4,17 @@ using namespace std;
 #include <vector>
 #include <stdint.h>
 
+/*
+    2-D grid DP. It would be hard to consider the strategy in natrual view, from upper-left to bottom-right.
+    In this way the process affects late decisions, as we may loss more HP to maintain a higher HP lowerbound.
+
+    One inefficient solution is to binary search the possible initial HP. For every HP we only need to preserve 
+    HP as many as possible. searching HP will take at most 64 times iterations.
+
+    Better solution takes another view. We start directly from end point with 1HP, then all we need to do is collecting 
+    as many HP as possible.
+*/
+
 class Solution {
 public:
     bool check(vector<vector<int> > &dungeon, int HP) {

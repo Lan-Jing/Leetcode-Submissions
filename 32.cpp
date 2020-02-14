@@ -5,6 +5,18 @@ using namespace std;
 #include <vector>
 #include <stack>
 
+/*
+    longest valid parentheses, a hard stack problem. We use array-style stack to not only operate on the top but also deeper elements.
+    A valid parentheses may contain multiple valid parentheses, for instance, ()(), which means we have to record some information of
+    those finished parentheses. We mark each left bracket as unfinished(0) or finished(1). For finished parentheses, we only preserve 
+    the leftmost one for length calculation. Other brackets should all be unfinished. 
+    1. If the new valid parentheses are to the right of the finished one, finish the current match, compute the length then just pop them out.
+    2. If the left bracket of the new one locates to the left while the right one to the right, holding the marked bracket in its middle,
+       then we get a more left bound. change the mark and pop out the old.
+    To do this we need a pointer to keep track of the rightmost unfinished left bracket, which can locate either to the left or right of the 
+    leftmost finished bracket. The key is to maintain the leftmost valid left brakcet.
+*/
+
 class Solution {
 public:
     struct node{
@@ -31,9 +43,11 @@ public:
                     rightMostUn--;
                 }else{
                     if(stk[rightMostUn-1].fin == 1){
+                    // to its right.
                         top = rightMostUn;
                         rightMostUn -= 2;
                     }else{
+                    // to its left.
                         top = rightMostUn + 1;
                         rightMostUn--;
                     }
