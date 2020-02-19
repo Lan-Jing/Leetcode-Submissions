@@ -4,6 +4,11 @@ using namespace std;
 #include <vector>
 #include <algorithm>
 
+/*
+    union-find. Prevent a node from being initially infected wiil only help chunks with exacyly one initial malware.
+    Record number of initial malware, pick out the biggest chunk with only one infected node. 
+*/
+
 class Solution {
 public:
     struct malWare {

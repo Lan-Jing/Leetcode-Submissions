@@ -5,6 +5,19 @@ using namespace std;
 #include <map>
 #include <utility>
 
+/*
+    hard to find a union-find solution at the first time.
+    However dfs one may be more straight-forward.
+    Consider indegree for every node.
+    1. There're some node i that indegree[i] == 2. Then we already find two edge candidates, say, a and b.
+        1) dfs from node i. If we meet a[1] or b[1], we find a directed loop. Only one of two candidates can be removed.
+        2) Otherwise, both a and b are valid. Pick one with larger index.
+    2. indegree for every node <= 1. the backward edge is surely connected to the root. The additional edge form a loop
+       around the root with every edge in that loop being possible answer. The circle can be easily found with good property,
+       as starting from an artbitrary node, climb up the reverse tree will have all edges in the loop visited once. 
+       Also pick up one with largest index.
+*/
+
 class Solution {
 public:
     void dfs_1(vector<int> &ans, vector<vector<int> > &neighbors, int now, vector<vector<int> > &targetEdges) {
@@ -19,6 +32,7 @@ public:
         if(vis[now]){
             int maxIndex = 0;
             for(int i = path.size()-1;i > 0;i--){
+            // go back to grab edges in the loop.
                 if(edgeIndex[make_pair(path[i],path[i-1])] > maxIndex){
                     ans.resize(2);
                     ans[0] = path[i], ans[1] = path[i-1];
@@ -66,6 +80,7 @@ public:
             vector<int> vis(n+1,0);
             for(int i = 0;i < edges.size();i++)
                 neighbors[edges[i][1]].push_back(edges[i][0]);
+            // climb up the reverse tree and find the loop.
             path.push_back(1);
             dfs_2(ans,neighbors,vis,1,path,edgeIndex);
         }

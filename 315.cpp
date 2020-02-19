@@ -5,6 +5,11 @@ using namespace std;
 #include <unordered_map>
 #include <algorithm>
 
+/*
+    easy to come up with a segment tree solution.
+    Every basic point insert and segment query.
+*/
+
 class Solution {
 public:
     struct segNode {

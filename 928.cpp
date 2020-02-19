@@ -5,6 +5,11 @@ using namespace std;
 #include <algorithm>
 #include <stdint.h>
 
+/*
+    O(n^3) brutal force solution from Problem 924.
+    Possible to be improved by Tarjan algorithm. Find all cut vertexes in the graph.
+*/
+
 class Solution {
 public:
     struct malWare {

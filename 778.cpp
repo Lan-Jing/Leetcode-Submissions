@@ -3,6 +3,11 @@ using namespace std;
 #include <vector>
 #include <string>
 #include <utility>
+#include <algorithm>
+
+/*
+    easy connectivity problem solved by union-find.
+*/
 
 class Solution {
 public:

@@ -3,6 +3,11 @@ using namespace std;
 #include <vector>
 #include <string>
 
+/*
+    easy dfs with memorization. View the grid as n*n nodes directed connected,
+    it is actually a dp problem on graph.
+*/
+
 class Solution {
 public:
     int gox[4]={-1,1,0,0}, goy[4]={0,0,1,-1};
