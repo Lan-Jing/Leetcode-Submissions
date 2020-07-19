@@ -4,7 +4,7 @@ using namespace std;
 #include <vector>
 #include <queue>
 #include <utility>
-#include <map>
+#include <unordered_map>
 
 class Solution {
 public:
@@ -12,7 +12,7 @@ public:
         int n = wordList.size(), l = wordList[0].length();
         queue<pair<int, int> > que; que.push(make_pair(beginIndex, 1));
         vector<int> vis(n, 0);
-        map<string, int> Map; 
+        unordered_map<string, int> Map; 
         for(int i = 0;i < n;i++) Map[wordList[i]] = i;
         while(!que.empty()) {
             pair<int, int> nowNode = que.front(); que.pop();

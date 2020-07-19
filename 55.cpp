@@ -48,6 +48,27 @@ public:
     }
 };
 
+class Solution {
+public:
+    bool canJump(vector<int>& nums) {
+        int n = nums.size();
+        int now = 0;
+        while(nums[now] && now < n-1) {
+            int maxl = 0, choose;
+            for(int next = now+1;next-now <= nums[now] && next < n;next++) {
+                if(nums[next] + next > maxl) {
+                    maxl = nums[next] + next;
+                    choose = next;
+                }
+            }
+            now = choose;
+            // cout<<now<<endl;
+        }
+        if(now < n-1) return false;
+        else return true;
+    }
+};
+
 int main() {
     Solution sol;
     vector<int> input = {2,3,1,1,4};
